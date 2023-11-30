@@ -26,6 +26,7 @@ The following **optional** features are implemented:
 Here's a walkthrough of implemented features:
 
 <img src='https://i.imgur.com/p1DMDfS.gifv' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<a href="https://i.imgur.com/p1DMDfS.gifv"> Direct link if necessary </a>
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with LICECap
