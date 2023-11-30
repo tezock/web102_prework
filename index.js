@@ -92,10 +92,10 @@ raisedCard.append(`$${raised.toLocaleString()}`);
 // grab number of games card and set its inner HTML
 const gamesCard = document.getElementById("num-games");
 
-const games = GAMES_JSON.reduce((accumulator, current) => {
+const numGames = GAMES_JSON.reduce((accumulator, current) => {
     return accumulator + 1}, 0);
 
-gamesCard.append(games.toLocaleString());
+gamesCard.append(numGames.toLocaleString());
 
 
 /*************************************************************************************
@@ -155,12 +155,20 @@ allBtn.addEventListener('click', showAllGames);
 const descriptionContainer = document.getElementById("description-container");
 
 // use filter or reduce to count the number of unfunded games
-
+let numUnfunded = GAMES_JSON.reduce((acc, curr) => {
+    return acc + (curr.pledged < curr.goal ? 1 : 0);
+}, 0);
 
 // create a string that explains the number of unfunded games using the ternary operator
-
+const displayStr = `
+    A total of $${raised.toLocaleString()} has been raised for ${numGames}
+    game${numGames == 1 ? "" : "s"}. Currently, ${numUnfunded} game${numUnfunded == 1 ? "" : "s"} 
+    remain underfunded. We need your help to fund these amazing games!`;
 
 // create a new DOM element containing the template string and append it to the description container
+const info = document.createElement("p");
+info.innerHTML = displayStr;
+descriptionContainer.append(info);
 
 /************************************************************************************
  * Challenge 7: Select & display the top 2 games
@@ -175,7 +183,24 @@ const sortedGames =  GAMES_JSON.sort( (item1, item2) => {
 });
 
 // use destructuring and the spread operator to grab the first and second games
+let [firstGame, ...remainingItems] = GAMES_JSON;
+let [secondGame, ...others2] = remainingItems;
 
 // create a new element to hold the name of the top pledge game, then append it to the correct element
+let firstDiv = document.getElementById("first-game");
+let firstElement = document.createElement("div");
+firstElement.innerHTML = (`
+                            <p>${firstGame.name}</p>
+                            <img src="${firstGame.img}" width="100%" />
+                            `)
+firstDiv.append(firstElement);
 
 // do the same for the runner up item
+let secondDiv = document.getElementById("second-game");
+let secondElement = document.createElement("div");
+secondElement.innerHTML = (`
+                            <p>${secondGame.name}</p>
+                            <img src="${secondGame.img}" width="100%" />
+                            `);
+secondDiv.append(secondElement);
+

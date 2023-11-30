@@ -57,11 +57,20 @@ body {
     width: 300px;
     text-align: center;
     border-radius: 7px;
+    transition-duration: 0.5s;
 }
 
+/* Resized them to make them bigger*/
 .game-card:hover {
     cursor: pointer;
     box-shadow: 0 0 30px lightblue;
+    width: 350px;
+    transition-duration: 0.5s;
+}
+
+/* Center the header information.*/
+#description-section {
+    text-align: center;
 }
 
 #button-container {
