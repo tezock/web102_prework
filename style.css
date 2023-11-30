@@ -60,11 +60,11 @@ body {
     transition-duration: 0.5s;
 }
 
-/* Resized them to make them bigger*/
+/* Added padding them to make them bigger without resizing*/
 .game-card:hover {
     cursor: pointer;
     box-shadow: 0 0 30px lightblue;
-    width: 350px;
+    padding: 1.15vw;
     transition-duration: 0.5s;
 }
 
